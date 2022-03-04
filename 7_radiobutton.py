@@ -1,4 +1,3 @@
-from itertools import tee
 from tkinter import *
 
 root = Tk()
