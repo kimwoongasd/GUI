@@ -23,7 +23,18 @@ scrollbar.pack(side='right', fill='y')
 
 list_file = Listbox(list_frame, selectmode='extend', height=15,yscrollcommand=scrollbar.set)
 list_file.pack(side='left', fill='both', expand=True)
-
 scrollbar.config(command=list_file.yview)
+
+# 저장경로 프레임
+
+save_frame = LabelFrame(root, text='저장경로')
+save_frame.pack()
+
+save_list = Listbox(save_frame, selectmode='extend', height=1)
+save_list.pack(side='left')
+
+btn_find = Button(save_frame, text='찾아보기')
+btn_find.pack()
+
 root.resizable(False, False)
 root.mainloop()
