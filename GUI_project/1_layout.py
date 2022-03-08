@@ -14,5 +14,17 @@ btn_sel_del = Button(file_frame, padx=5, pady=5, width=12,text='선택 삭제')
 btn_add_file.pack(side='left')
 btn_sel_del.pack(side='right')
 
+# 리스트 프레임
+list_frame = Frame(root)
+list_frame.pack()
+
+scrollbar = Scrollbar(list_frame)
+scrollbar.pack(side='right', fill='y')
+
+list_txt = Text(list_frame, yscrollcommand=scrollbar.set)
+list_txt.pack(side='left')
+
+
+scrollbar.config(command=list_txt.yview)
 root.resizable(False, False)
 root.mainloop()
