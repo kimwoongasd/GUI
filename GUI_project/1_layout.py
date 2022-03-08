@@ -8,7 +8,7 @@ root.title('GUI Image')
 
 # 파일 프레임 (파일 추가, 선택삭제)
 file_frame = Frame(root)
-file_frame.pack(fill='both', expand=True)
+file_frame.pack(fill='both', expand=True, padx=5, pady=5)
 
 btn_add_file = Button(file_frame, padx=5, pady=5, width=12, text='파일 추가')
 btn_sel_del = Button(file_frame, padx=5, pady=5, width=12, text='선택 삭제')
@@ -18,7 +18,7 @@ btn_sel_del.pack(side='right')
 
 # 리스트 프레임
 list_frame = Frame(root)
-list_frame.pack(fill='both')
+list_frame.pack(fill='both', padx=5, pady=5)
 
 scrollbar = Scrollbar(list_frame)
 scrollbar.pack(side='right', fill='y')
@@ -30,7 +30,7 @@ scrollbar.config(command=list_file.yview)
 # 저장경로 프레임
 
 path_frame = LabelFrame(root, text='저장경로')
-path_frame.pack(fill='both', expand=True)
+path_frame.pack(fill='both', expand=True, padx=5, pady=5)
 
 save_list = Entry(path_frame)
 save_list.pack(side='left', fill='x', expand=True, ipady= 4)
@@ -41,7 +41,7 @@ btn_path.pack(side='right')
 # 옵션 프레임
 
 option_frame = LabelFrame(root, text='옵션')
-option_frame.pack()
+option_frame.pack(padx=5, pady=5)
 
 # 가로 넓이
 # 가로 넓이 레이블
@@ -78,7 +78,7 @@ format_cbbox.grid(row=0, column=5)
 
 # 진행상황 프레임
 progress_frame = LabelFrame(root, text='진행상황')
-progress_frame.pack(fill='x', expand=True)
+progress_frame.pack(fill='x', expand=True, padx=5, pady=5)
 
 p_var = DoubleVar()
 progressbar = ttk.Progressbar(progress_frame, maximum=100, variable=p_var)
@@ -86,7 +86,7 @@ progressbar.pack(fill='x')
 
 # 시작 닫기 버튼
 run_frame = Frame(root)
-run_frame.pack(fill='x')
+run_frame.pack(fill='x', padx=5, pady=5)
 
 btn_close = Button(run_frame, text='닫기', width=10, height=2, command=root.quit)
 btn_close.pack(side='right', padx=5, pady=5)
