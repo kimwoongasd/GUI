@@ -16,15 +16,14 @@ btn_sel_del.pack(side='right')
 
 # 리스트 프레임
 list_frame = Frame(root)
-list_frame.pack()
+list_frame.pack(fill='both')
 
 scrollbar = Scrollbar(list_frame)
 scrollbar.pack(side='right', fill='y')
 
-list_txt = Text(list_frame, yscrollcommand=scrollbar.set)
-list_txt.pack(side='left')
+list_file = Listbox(list_frame, selectmode='extend', height=15,yscrollcommand=scrollbar.set)
+list_file.pack(side='left', fill='both', expand=True)
 
-
-scrollbar.config(command=list_txt.yview)
+scrollbar.config(command=list_file.yview)
 root.resizable(False, False)
 root.mainloop()
