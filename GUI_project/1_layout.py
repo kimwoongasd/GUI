@@ -33,10 +33,10 @@ path_frame = LabelFrame(root, text='저장경로')
 path_frame.pack(fill='both', expand=True, padx=5, pady=5)
 
 save_list = Entry(path_frame)
-save_list.pack(side='left', fill='x', expand=True, ipady= 4)
+save_list.pack(side='left', fill='x', expand=True, ipady= 4, padx=5, pady=5)
 
 btn_path = Button(path_frame, text='찾아보기', width=10)
-btn_path.pack(side='right')
+btn_path.pack(side='right', padx=5, pady=5)
 
 # 옵션 프레임
 
@@ -46,35 +46,35 @@ option_frame.pack(padx=5, pady=5)
 # 가로 넓이
 # 가로 넓이 레이블
 width_labal = Label(option_frame, text='가로 넓이', padx=10)
-width_labal.grid(row=0, column=0)
+width_labal.pack(side='left', padx=5, pady=5)
 
 # 가로 넓이 콤보박스
 width_values = ['원본유지', '1024', '800', '640']
 width_cbbox = ttk.Combobox(option_frame, values=width_values, state='readonly', width=10)
 width_cbbox.current(0)
-width_cbbox.grid(row=0, column=1)
+width_cbbox.pack(side='left', padx=5, pady=5)
 
 # 간격
 # 간격 레이블
 interval_labal = Label(option_frame, text='간격', padx=10)
-interval_labal.grid(row=0, column=2)
+interval_labal.pack(side='left', padx=5, pady=5)
 
 # 간격 콤보박스
 interval_values = ['없음', '좁게', '넓게', '보통']
 interval_cbbox = ttk.Combobox(option_frame, values=interval_values, state='readonly', width=10)
 interval_cbbox.current(0)
-interval_cbbox.grid(row=0, column=3)
+interval_cbbox.pack(side='left', padx=5, pady=5)
 
 # 포멧
 # 포멧 레이블
 format_label = Label(option_frame, text='포멧', padx=10)
-format_label.grid(row=0, column=4)
+format_label.pack(side='left', padx=5, pady=5)
 
 # 포멧 콤보박스
 format_values = ['PNG', 'JPG', 'BMP']
 format_cbbox = ttk.Combobox(option_frame, values=format_values, state='readonly', width=10)
 format_cbbox.current(0)
-format_cbbox.grid(row=0, column=5)
+format_cbbox.pack(side='left', padx=5, pady=5)
 
 # 진행상황 프레임
 progress_frame = LabelFrame(root, text='진행상황')
@@ -82,7 +82,7 @@ progress_frame.pack(fill='x', expand=True, padx=5, pady=5)
 
 p_var = DoubleVar()
 progressbar = ttk.Progressbar(progress_frame, maximum=100, variable=p_var)
-progressbar.pack(fill='x')
+progressbar.pack(fill='x', padx=5, pady=5)
 
 # 시작 닫기 버튼
 run_frame = Frame(root)
