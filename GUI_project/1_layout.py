@@ -27,14 +27,14 @@ scrollbar.config(command=list_file.yview)
 
 # 저장경로 프레임
 
-save_frame = LabelFrame(root, text='저장경로')
-save_frame.pack()
+path_frame = LabelFrame(root, text='저장경로')
+path_frame.pack()
 
-save_list = Listbox(save_frame, selectmode='extend', height=1)
-save_list.pack(side='left')
+save_list = Entry(path_frame)
+save_list.pack(side='left', fill='x', expand=True, ipady= 4)
 
-btn_find = Button(save_frame, text='찾아보기')
-btn_find.pack()
+btn_path = Button(path_frame, text='찾아보기', width=10)
+btn_path.pack(side='right')
 
 root.resizable(False, False)
 root.mainloop()
