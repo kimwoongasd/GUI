@@ -85,10 +85,13 @@ progressbar = ttk.Progressbar(progress_frame, maximum=100, variable=p_var)
 progressbar.pack(fill='x')
 
 # 시작 닫기 버튼
-btn_close = Button(root, text='닫기', width=10, height=2)
-btn_close.pack(side='right', padx=8, pady=8)
-btn_start = Button(root, text='시작', width=10, height=2)
-btn_start.pack(side='right', padx=8, pady=8)
+run_frame = Frame(root)
+run_frame.pack(fill='x')
+
+btn_close = Button(run_frame, text='닫기', width=10, height=2, command=root.quit)
+btn_close.pack(side='right', padx=5, pady=5)
+btn_start = Button(run_frame, text='시작', width=10, height=2)
+btn_start.pack(side='right', padx=5, pady=5)
 
 
 root.resizable(False, False)
