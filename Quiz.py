@@ -4,6 +4,9 @@ root = Tk()
 root.title('제목 없음 - windows 메모장')
 root.geometry('320x400')
 
+def quit():
+    root.quit()
+
 menu = Menu(root)
 
 # tearoff 줄 제거
@@ -11,7 +14,7 @@ menu_file = Menu(menu, tearoff=0)
 menu_file.add_command(label='열기(O)')
 menu_file.add_command(label='저장(S)')
 menu_file.add_separator()
-menu_file.add_command(label='끝내기(X)')
+menu_file.add_command(label='끝내기(X)', command=quit)
 
 menu.add_cascade(label='파일(F)', menu=menu_file)
 
