@@ -76,5 +76,13 @@ format_cbbox = ttk.Combobox(option_frame, values=format_values, state='readonly'
 format_cbbox.current(0)
 format_cbbox.grid(row=0, column=5)
 
+# 진행상황 프레임
+progress_frame = LabelFrame(root, text='진행상황')
+progress_frame.pack(fill='x', expand=True)
+
+p_var = DoubleVar()
+progressbar = ttk.Progressbar(progress_frame, maximum=100, variable=p_var)
+progressbar.pack(fill='x')
+
 root.resizable(False, False)
 root.mainloop()
