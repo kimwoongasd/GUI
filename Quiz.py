@@ -1,9 +1,24 @@
+from fileinput import filename
 from tkinter import *
 import tkinter.messagebox as msgbox
+import os
 
 root = Tk()
 root.title('제목 없음 - windows 메모장')
 root.geometry('320x400')
+
+# 나도코딩의 함수
+# filename = 'mynote.txt'
+
+# def opening():
+#     if os.path.isfile(filename):
+#         with open(filename, 'r', encoding='UTF-8') as file:
+#             txt.delete('1.0', END)
+#             txt.insert(END, file.read())
+    
+# def save():
+#     with open(filename, 'w', encoding='UTF-8') as file:
+#             file.write(txt.get('1.0', END))
 
 # 열기 함수
 def opening():
@@ -48,12 +63,13 @@ menu.add_cascade(label='도움말(H)')
 scrollbar = Scrollbar(root)
 scrollbar.pack(side='right', fill='y')
 
-
 # 텍스트
 txt = Text(root, yscrollcommand=scrollbar.set)
 txt.pack(fill='both', expand=True)
 
+# 텍스트와 스크롤바 맵핑
 scrollbar.config(command=txt.yview)
+
 # 화면에 보여주게 만들어 줌
 root.config(menu=menu)
 root.mainloop()
