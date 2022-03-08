@@ -30,9 +30,6 @@ def quit():
 
 menu = Menu(root)
 
-frame = Frame(root)
-frame.pack(fill='both', expand=True)
-
 # tearoff 줄 제거
 menu_file = Menu(menu, tearoff=0)
 menu_file.add_command(label='열기(O)', command=opening)
@@ -48,15 +45,15 @@ menu.add_cascade(label='보기(V)')
 menu.add_cascade(label='도움말(H)')
 
 # 스크롤바
-scrollbar = Scrollbar(frame)
-txt = Text(frame, yscrollcommand=scrollbar.set)
+scrollbar = Scrollbar(root)
 scrollbar.pack(side='right', fill='y')
-scrollbar.config(command=txt.yview)
+
 
 # 텍스트
+txt = Text(root, yscrollcommand=scrollbar.set)
 txt.pack(fill='both', expand=True)
 
-
+scrollbar.config(command=txt.yview)
 # 화면에 보여주게 만들어 줌
 root.config(menu=menu)
 root.mainloop()
