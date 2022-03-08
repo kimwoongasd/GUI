@@ -12,6 +12,7 @@ def opening():
         file = f.read()
         txt.delete('1.0', END)
         txt.insert(END, file)
+        f.close()
         
     except:
         msgbox.showerror('에러', '파일을 찾을 수 없습니다.')
