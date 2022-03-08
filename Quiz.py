@@ -4,6 +4,7 @@ root = Tk()
 root.title('제목 없음 - windows 메모장')
 root.geometry('320x400')
 
+# 프로그램 종료 함수
 def quit():
     root.quit()
 
@@ -23,6 +24,10 @@ menu.add_cascade(label='서식(O)')
 menu.add_cascade(label='보기(V)')
 menu.add_cascade(label='도움말(H)')
 
+
+# 스크롤바
+scrollbar = Scrollbar(root)
+scrollbar.pack(side='right', fill='y')
 
 # 화면에 보여주게 만들어 줌
 root.config(menu=menu)
