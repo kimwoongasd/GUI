@@ -1,4 +1,3 @@
-from msilib.schema import ComboBox
 from tkinter import *
 import tkinter.ttk as ttk
 
