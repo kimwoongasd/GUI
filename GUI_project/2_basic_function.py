@@ -7,6 +7,7 @@ root.title('GUI Image')
 
 # 파일 추가
 def add_file():
+    # initialdir : 처음 시작 경로
     filenames = filedialog.askopenfilenames(initialdir='c:/', title='파일추가', filetypes=(('png files','*.png'), ('jpg files','*.jpg'), ('bmp files', '*.bmp'), ('모든 파일', '*.*')))
     
     for filename in filenames:
@@ -17,6 +18,11 @@ def del_file():
     files = list_file.curselection()
     for index in files[::-1]:
         list_file.delete(index)
+        
+def save_path():
+    save_list.delete(0, END)
+    s_path = filedialog.askdirectory()
+    save_list.insert(END, s_path)
     
 # 파일 프레임 (파일 추가, 선택삭제)
 file_frame = Frame(root)
@@ -47,7 +53,7 @@ path_frame.pack(fill='both', expand=True, padx=5, pady=5)
 save_list = Entry(path_frame)
 save_list.pack(side='left', fill='x', expand=True, ipady= 4, padx=5, pady=5)
 
-btn_path = Button(path_frame, text='찾아보기', width=10)
+btn_path = Button(path_frame, text='찾아보기', width=10, command=save_path)
 btn_path.pack(side='right', padx=5, pady=5)
 
 # 옵션 프레임
