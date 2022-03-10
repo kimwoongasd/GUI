@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import filedialog
 import tkinter.ttk as ttk
+import tkinter.messagebox as msgbox
 
 root = Tk()
 root.title('GUI Image')
@@ -18,11 +19,27 @@ def del_file():
     files = list_file.curselection()
     for index in files[::-1]:
         list_file.delete(index)
-        
+
+# 폴더 저장 경로        
 def save_path():
     save_list.delete(0, END)
     s_path = filedialog.askdirectory()
     save_list.insert(END, s_path)
+    
+# 시작
+def start():
+    # 각 옵셥값 확인
+    print('가로 넓이 :', width_cbbox.get())
+    print('간격 :', interval_cbbox.get())
+    print('포멧 :', format_cbbox.get())
+    
+    # 파일 추가 안했을 경우
+    if list_file.size() == 0:
+        msgbox.showwarning('경고', '파일을 추가해 주세요')
+    
+    # 저장경로 입력하지 않은 경우
+    if len(save_list.get()) == 0:
+        msgbox.showwarning('경고', '저정경로를 설정해 주세요')
     
 # 파일 프레임 (파일 추가, 선택삭제)
 file_frame = Frame(root)
@@ -108,7 +125,7 @@ run_frame.pack(fill='x', padx=5, pady=5)
 
 btn_close = Button(run_frame, text='닫기', width=10, height=2, command=root.quit)
 btn_close.pack(side='right', padx=5, pady=5)
-btn_start = Button(run_frame, text='시작', width=10, height=2)
+btn_start = Button(run_frame, text='시작', width=10, height=2, command=start)
 btn_start.pack(side='right', padx=5, pady=5)
 
 
