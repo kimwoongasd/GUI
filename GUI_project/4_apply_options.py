@@ -87,7 +87,7 @@ def merge_image():
     
     
     # size : size[0] : width,  size[1] : height
-    widths, heights = zip(*(x.size for x in image_sizes))
+    widths, heights = zip(*(image_sizes))
     
     # 최대 넓이와 높이 총합 구하기
     max_width, total_height = max(widths), sum(heights)
