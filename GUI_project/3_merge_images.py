@@ -38,15 +38,19 @@ def merge_image():
     # 최대 넓이와 높이 총합 구하기
     max_width, total_height = max(widths), sum(heights)
     
-    # 이미지를 합칠 스케치북
+    # # 이미지를 합칠 스케치북
     result_img = Image.new("RGB", (max_width, total_height), (255, 255, 255)) # 배경 흰색
     y_offset = 0 # y 위치
-    for img in images:
+        
+    for idx, img in enumerate(images):
         result_img.paste(img, (0, y_offset))
         y_offset += img.size[1] # 높이 값 만큼 더함
+        p_var.set(((idx + 1) / len(images)) * 100)
+        progressbar.update()
+        
     
-    dest_path = os.path.join(save_list.get(), 'nado_photo.jpg')
-    result_img.save(dest_path)
+    dest_path = os.path.join(save_list.get(), 'nado_photo.jpg') # 저장 경로
+    result_img.save(dest_path) # 저장
     msgbox.showinfo('알림', '작업이 완료되었습니다.')
     
 # 시작
@@ -59,10 +63,12 @@ def start():
     # 파일 추가 안했을 경우
     if list_file.size() == 0:
         msgbox.showwarning('경고', '파일을 추가해 주세요')
+        return
     
     # 저장경로 입력하지 않은 경우
     if len(save_list.get()) == 0:
         msgbox.showwarning('경고', '저정경로를 설정해 주세요')
+        return
     
     merge_image()
     
