@@ -11,7 +11,7 @@ root.geometry('640x480')
 
 # 기차 예매 시스템 가정
 def info():
-    msgbox,msgbox.showinfo('알림', '정상적으로 예매 완료')
+    msgbox.showinfo('알림', '정상적으로 예매 완료')
     
 def warn():
     msgbox.showwarning('경고', '해당 좌석은 매진되었습니다')
