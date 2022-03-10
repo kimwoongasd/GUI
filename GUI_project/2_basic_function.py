@@ -5,16 +5,18 @@ import tkinter.ttk as ttk
 root = Tk()
 root.title('GUI Image')
 
-
-def file_log():
-    root.filename = filedialog.askopenfilename(initialdir='/', title='파일추가', filetypes=(('png files','*.png'),('jpg files','*.jpg'),('all files','*.*')))
-    list_file.insert(END, root.filename)
+# 파일 추가
+def add_file():
+    filenames = filedialog.askopenfilenames(initialdir='c:/', title='파일추가', filetypes=(('png files','*.png'), ('jpg files','*.jpg'), ('bmp files', '*.bmp'), ('모든 파일', '*.*')))
+    
+    for filename in filenames:
+        list_file.insert(END, filename)
     
 # 파일 프레임 (파일 추가, 선택삭제)
 file_frame = Frame(root)
 file_frame.pack(fill='both', expand=True, padx=5, pady=5)
 
-btn_add_file = Button(file_frame, padx=5, pady=5, width=12, text='파일 추가', command=file_log)
+btn_add_file = Button(file_frame, padx=5, pady=5, width=12, text='파일 추가', command=add_file)
 btn_sel_del = Button(file_frame, padx=5, pady=5, width=12, text='선택 삭제')
 
 btn_add_file.pack(side='left')
