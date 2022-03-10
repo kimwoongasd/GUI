@@ -53,6 +53,14 @@ def merge_image():
     result_img.save(dest_path) # 저장
     msgbox.showinfo('알림', '작업이 완료되었습니다.')
     
+    # 완료 후 초기화
+    list_file.delete(0, END)
+    save_list.delete(0, END)
+    p_var.set(0)
+    width_cbbox.current(0)
+    interval_cbbox.current(0)
+    format_cbbox.current(0)
+    
 # 시작
 def start():
     # 각 옵셥값 확인
