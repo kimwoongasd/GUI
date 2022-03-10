@@ -11,13 +11,19 @@ def add_file():
     
     for filename in filenames:
         list_file.insert(END, filename)
+        
+# 파일 선택 삭제
+def del_file():
+    files = list_file.curselection()
+    for index in files[::-1]:
+        list_file.delete(index)
     
 # 파일 프레임 (파일 추가, 선택삭제)
 file_frame = Frame(root)
 file_frame.pack(fill='both', expand=True, padx=5, pady=5)
 
 btn_add_file = Button(file_frame, padx=5, pady=5, width=12, text='파일 추가', command=add_file)
-btn_sel_del = Button(file_frame, padx=5, pady=5, width=12, text='선택 삭제')
+btn_sel_del = Button(file_frame, padx=5, pady=5, width=12, text='선택 삭제', command=del_file)
 
 btn_add_file.pack(side='left')
 btn_sel_del.pack(side='right')
@@ -29,7 +35,7 @@ list_frame.pack(fill='both', padx=5, pady=5)
 scrollbar = Scrollbar(list_frame)
 scrollbar.pack(side='right', fill='y')
 
-list_file = Listbox(list_frame, selectmode='extend', height=15,yscrollcommand=scrollbar.set)
+list_file = Listbox(list_frame, selectmode='extended', height=15,yscrollcommand=scrollbar.set)
 list_file.pack(side='left', fill='both', expand=True)
 scrollbar.config(command=list_file.yview)
 

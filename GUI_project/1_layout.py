@@ -22,7 +22,7 @@ list_frame.pack(fill='both', padx=5, pady=5)
 scrollbar = Scrollbar(list_frame)
 scrollbar.pack(side='right', fill='y')
 
-list_file = Listbox(list_frame, selectmode='extend', height=15,yscrollcommand=scrollbar.set)
+list_file = Listbox(list_frame, selectmode='extended', height=15,yscrollcommand=scrollbar.set)
 list_file.pack(side='left', fill='both', expand=True)
 scrollbar.config(command=list_file.yview)
 
